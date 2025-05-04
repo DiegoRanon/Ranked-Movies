@@ -239,6 +239,18 @@ function MovieDetails({ selectedId, onCloseMovie, onAddWatched, watched }) {
     },
     [selectedId]
   );
+  // Change the title of the webPage
+  useEffect(
+    function () {
+      if (!title) return;
+      document.title = `Movie | ${title}`;
+      // Clean up function
+      return function () {
+        document.title = "usePopcorn";
+      };
+    },
+    [title]
+  );
 
   return (
     <div className="details">
