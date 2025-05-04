@@ -22,12 +22,13 @@ const starStyle = {
   display: "block",
   cursor: "pointer",
 };
-export default function StarRating({ maxRating = 5 }) {
+export default function StarRating({ maxRating = 5, onSetRating }) {
   const [rating, setRating] = useState(0);
   const [tempRating, setTemprating] = useState(0);
 
   function handleRating(rating) {
     setRating(rating);
+    onSetRating(rating);
   }
 
   return (
