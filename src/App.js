@@ -53,7 +53,7 @@ const KEY = "fd950ab6";
 export default function App() {
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [query, setQuery] = useState("Matrix");
+  const [query, setQuery] = useState("");
   const [error, setError] = useState("");
   const [selectedId, setSelectedId] = useState(null);
 
@@ -362,6 +362,11 @@ function Logo() {
 }
 
 function Search({ query, setQuery }) {
+  useEffect(function () {
+    const el = document.querySelector(".search");
+    el.focus();
+  }, []);
+
   return (
     <input
       className="search"
